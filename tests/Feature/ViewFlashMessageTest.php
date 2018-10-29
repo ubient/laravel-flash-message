@@ -27,7 +27,7 @@ class ViewFlashMessageTest extends TestCase
     /** @test */
     public function it_should_display_our_info_message(): void
     {
-        $message = "A wide screen just makes a bad film twice as bad.";
+        $message = 'A wide screen just makes a bad film twice as bad.';
 
         redirect('display')->withInfoMessage($message);
         $response = $this->get('display');
@@ -40,7 +40,7 @@ class ViewFlashMessageTest extends TestCase
     /** @test */
     public function it_should_display_our_success_message(): void
     {
-        $message = "Where there is no vision, there is no hope.";
+        $message = 'Where there is no vision, there is no hope.';
 
         redirect('display')->withSuccessMessage($message);
         $response = $this->get('display');
@@ -53,7 +53,7 @@ class ViewFlashMessageTest extends TestCase
     /** @test */
     public function it_should_display_our_warning_message(): void
     {
-        $message = "Nine-tenths of wisdom is being wise in time.";
+        $message = 'Nine-tenths of wisdom is being wise in time.';
 
         redirect('display')->withWarningMessage($message);
         $response = $this->get('display');
@@ -66,7 +66,7 @@ class ViewFlashMessageTest extends TestCase
     /** @test */
     public function it_should_display_our_error_message(): void
     {
-        $message = "Life is the art of drawing without an eraser.";
+        $message = 'Life is the art of drawing without an eraser.';
 
         redirect('display')->withErrorMessage($message);
         $response = $this->get('display');
@@ -79,7 +79,7 @@ class ViewFlashMessageTest extends TestCase
     /** @test */
     public function it_should_be_backwards_compatible_with_laravels_built_in_status_message(): void
     {
-        $message = "These are used by default in ResetsPasswords.php and SendsPasswordResetEmails.php";
+        $message = 'These are used by default in ResetsPasswords.php and SendsPasswordResetEmails.php';
 
         redirect('display')->with('status', $message);
         $response = $this->get('display');
@@ -92,7 +92,7 @@ class ViewFlashMessageTest extends TestCase
     public function it_should_prefer_our_flashed_message_over_laravels_built_in_status_message(): void
     {
         $message = "All I ask is the chance to prove that money can't make me happy.";
-        $builtInMessage = "These are used by default in ResetsPasswords.php and SendsPasswordResetEmails.php";
+        $builtInMessage = 'These are used by default in ResetsPasswords.php and SendsPasswordResetEmails.php';
 
         redirect('display')
             ->withWarningMessage($message)

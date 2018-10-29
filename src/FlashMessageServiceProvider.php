@@ -11,10 +11,10 @@ class FlashMessageServiceProvider extends ServiceProvider
     {
         $this->registerMacros();
 
-        $this->loadViewsFrom(__DIR__ . '/views', 'flash-message');
+        $this->loadViewsFrom(__DIR__.'/views', 'flash-message');
 
         $this->publishes([
-            __DIR__ . '/views' => base_path('resources/views/vendor/flash-message'),
+            __DIR__.'/views' => base_path('resources/views/vendor/flash-message'),
         ]);
     }
 
@@ -27,7 +27,7 @@ class FlashMessageServiceProvider extends ServiceProvider
 
     private function registerMacro(string $level): void
     {
-        $name = 'with' . ucfirst(strtolower($level)) . 'Message';
+        $name = 'with'.ucfirst(strtolower($level)).'Message';
 
         RedirectResponse::macro($name, function ($message) use ($level) {
             return $this->with('flash_message', [
