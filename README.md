@@ -39,7 +39,7 @@ Luckily, doing so is fairly easy:
 
 1. Publish our template into your application by running the following artisan command:
 ```bash
-php artisan vendor:publish --provider="Ubient\FlashMessage\FlashServiceProvider"
+php artisan vendor:publish --provider="Ubient\FlashMessage\FlashMessageServiceProvider"
 ```
 2. Modify the template located at `resources/views/vendor/flash-message/alert.blade.php`.
 3. That's all! Laravel will automatically pick up on the changes you've made.
