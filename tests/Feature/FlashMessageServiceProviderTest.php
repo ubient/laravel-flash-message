@@ -20,7 +20,7 @@ class FlashMessageServiceProviderTest extends TestCase
     {
         parent::setUp();
 
-        $this->pathToViews = realpath(__DIR__ . "/../../src/views");
+        $this->pathToViews = realpath(__DIR__.'/../../src/views');
     }
 
     /** @test */
