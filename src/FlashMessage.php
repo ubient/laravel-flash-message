@@ -3,7 +3,6 @@
 namespace Ubient\FlashMessage;
 
 use PHPUnit\Framework\Assert as PHPUnit;
-use Ubient\FlashMessage\HasFlashMessageConstraint;
 
 class FlashMessage
 {
@@ -18,7 +17,7 @@ class FlashMessage
             'info',
             'success',
             'warning',
-            'error'
+            'error',
         ];
     }
 

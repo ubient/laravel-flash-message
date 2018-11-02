@@ -29,7 +29,7 @@ class HasFlashMessageConstraint extends Constraint
      */
     public function toString(): string
     {
-        return "has a flash message";
+        return 'has a flash message';
     }
 
     /**
@@ -46,7 +46,7 @@ class HasFlashMessageConstraint extends Constraint
     }
 
     /**
-     * Returns the description of the failure
+     * Returns the description of the failure.
      *
      * The beginning of failure messages is "Failed asserting that" in most
      * cases. This method should return the second part of that sentence.
@@ -55,10 +55,10 @@ class HasFlashMessageConstraint extends Constraint
      */
     protected function failureDescription($other): string
     {
-        $message = sprintf("a [%s] flash message is set", $this->expectedLevel);
+        $message = sprintf('a [%s] flash message is set', $this->expectedLevel);
 
         if ($this->expectedMessage) {
-            return $message . " with the expected value";
+            return $message.' with the expected value';
         }
 
         return $message;

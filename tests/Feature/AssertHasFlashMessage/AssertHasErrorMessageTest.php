@@ -58,7 +58,7 @@ class AssertHasErrorMessageTest extends TestCase
 
         tap($this->get('/'), function ($response) {
             $this->expectException(ExpectationFailedException::class);
-            $response->assertHasErrorMessage("In the future, everyone will be famous for 15 minutes.");
+            $response->assertHasErrorMessage('In the future, everyone will be famous for 15 minutes.');
         });
     }
 
@@ -66,7 +66,7 @@ class AssertHasErrorMessageTest extends TestCase
     public function it_should_throw_an_exception_for_having_a_different_message(): void
     {
         app('router')->get('/', function () {
-            return redirect('/')->withErrorMessage("Nine-tenths of wisdom is being wise in time.");
+            return redirect('/')->withErrorMessage('Nine-tenths of wisdom is being wise in time.');
         });
 
         tap($this->get('/'), function ($response) {
@@ -93,7 +93,7 @@ class AssertHasErrorMessageTest extends TestCase
     public function it_should_throw_an_exception_for_having_a_different_flash_message_type(): void
     {
         app('router')->get('/', function () {
-            return redirect('/')->withErrorMessage("The less we deserve good fortune, the more we hope for it.");
+            return redirect('/')->withErrorMessage('The less we deserve good fortune, the more we hope for it.');
         });
 
         tap($this->get('/'), function ($response) {

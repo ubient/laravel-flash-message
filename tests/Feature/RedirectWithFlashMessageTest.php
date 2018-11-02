@@ -2,7 +2,6 @@
 
 namespace Ubient\FlashMessage\Tests\Feature;
 
-use Ubient\FlashMessage\FlashMessage;
 use Ubient\FlashMessage\Tests\TestCase;
 
 /**
