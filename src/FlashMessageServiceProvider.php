@@ -3,7 +3,6 @@
 namespace Ubient\FlashMessage;
 
 use Illuminate\Http\RedirectResponse;
-use Ubient\FlashMessage\FlashMessage;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Testing\TestResponse;
 
@@ -58,7 +57,7 @@ class FlashMessageServiceProvider extends ServiceProvider
      */
     private function registerHasFlashMessageAssertion(string $level): void
     {
-        $name = 'assertHas'.ucfirst(strtolower($level))."Message";
+        $name = 'assertHas'.ucfirst(strtolower($level)).'Message';
 
         TestResponse::macro($name, function ($value = null, $message = '') use ($level) {
             FlashMessage::assert($level, $value, $message);

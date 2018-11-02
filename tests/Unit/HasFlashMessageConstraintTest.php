@@ -4,8 +4,8 @@ namespace Ubient\FlashMessage\Unit\PHPUnit;
 
 use PHPUnit\Framework\TestFailure;
 use Ubient\FlashMessage\Tests\TestCase;
-use Ubient\FlashMessage\HasFlashMessageConstraint;
 use PHPUnit\Framework\ExpectationFailedException;
+use Ubient\FlashMessage\HasFlashMessageConstraint;
 
 /**
  * @SuppressWarnings(PHPMD.CamelCaseMethodName)
@@ -21,21 +21,21 @@ class HasFlashMessageConstraintTest extends TestCase
             $constraint->evaluate($actual);
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(
-                $expectedErrorMessage . "\n",
+                $expectedErrorMessage."\n",
                 TestFailure::exceptionToString($e)
             );
 
             return;
         }
 
-        throw new \LogicException("The evaluated constrain did not fail as expected.");
+        throw new \LogicException('The evaluated constrain did not fail as expected.');
     }
 
     /** @test */
     public function it_should_assert_the_flash_message_was_set(): void
     {
         $expected = ['level' => 'success', 'message' => null];
-        $actual = ['level' => $expected['level'], 'message' => "A flashed message"];
+        $actual = ['level' => $expected['level'], 'message' => 'A flashed message'];
         $constraint = new HasFlashMessageConstraint($expected['level'], $expected['message']);
 
         $this->assertTrue($constraint->evaluate($actual, '', true));
@@ -45,7 +45,7 @@ class HasFlashMessageConstraintTest extends TestCase
     /** @test */
     public function it_should_assert_the_flash_message_was_set_and_has_the_expected_message(): void
     {
-        $expected = ['level' => 'success', 'message' => "A flashed message"];
+        $expected = ['level' => 'success', 'message' => 'A flashed message'];
         $constraint = new HasFlashMessageConstraint($expected['level'], $expected['message']);
 
         $this->assertTrue($constraint->evaluate($expected, '', true));
@@ -68,7 +68,7 @@ class HasFlashMessageConstraintTest extends TestCase
     /** @test */
     public function it_should_throw_an_exception_for_having_no_flash_message_set_with_the_expected_message(): void
     {
-        $expected = ['level' => 'success', 'message' => "A flashed message"];
+        $expected = ['level' => 'success', 'message' => 'A flashed message'];
         $actual = [];
 
         $this->assertFailingConstraint(
@@ -81,9 +81,9 @@ class HasFlashMessageConstraintTest extends TestCase
     /** @test */
     public function it_should_throw_an_exception_for_having_a_different_message(): void
     {
-        $expected = ['level' => 'success', 'message' => "A flashed message"];
-        $actual = ['level' => $expected['level'], 'message' => "Some completely different message"];
-        $expectedMessage = <<<EOF
+        $expected = ['level' => 'success', 'message' => 'A flashed message'];
+        $actual = ['level' => $expected['level'], 'message' => 'Some completely different message'];
+        $expectedMessage = <<<'EOF'
 Failed asserting that a [success] flash message is set with the expected value.
 --- Expected
 +++ Actual
@@ -101,7 +101,7 @@ EOF;
     /** @test */
     public function it_should_throw_an_exception_for_having_the_expected_message_but_a_different_flash_message_type(): void
     {
-        $expected = ['level' => 'success', 'message' => "A flashed message"];
+        $expected = ['level' => 'success', 'message' => 'A flashed message'];
         $actual = ['level' => 'warning', 'message' => $expected['message']];
 
         $this->assertFailingConstraint(
