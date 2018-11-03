@@ -5,6 +5,7 @@ namespace Ubient\FlashMessage\Tests\Feature;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\ServiceProvider;
 use Ubient\FlashMessage\Tests\TestCase;
+use Illuminate\Foundation\Testing\TestResponse;
 use Ubient\FlashMessage\FlashMessageServiceProvider;
 
 /**
@@ -27,9 +28,16 @@ class FlashMessageServiceProviderTest extends TestCase
     public function it_should_register_all_macros(): void
     {
         $this->assertTrue(RedirectResponse::hasMacro('withInfoMessage'));
+        $this->assertTrue(TestResponse::HasMacro('assertHasInfoMessage'));
+
         $this->assertTrue(RedirectResponse::hasMacro('withSuccessMessage'));
+        $this->assertTrue(TestResponse::HasMacro('assertHasSuccessMessage'));
+
         $this->assertTrue(RedirectResponse::hasMacro('withWarningMessage'));
+        $this->assertTrue(TestResponse::HasMacro('assertHasWarningMessage'));
+
         $this->assertTrue(RedirectResponse::hasMacro('withErrorMessage'));
+        $this->assertTrue(TestResponse::HasMacro('assertHasErrorMessage'));
     }
 
     /** @test */
