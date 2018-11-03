@@ -24,6 +24,19 @@ A good place to start doing so, is by including the alert we've shipped with thi
 @include('flash-message::alert')
 ```
 
+If you're testing your application, and would like to assert whether the flash message was set, you can do so
+by calling one of the [available assertions](#available-assertions) on the TestResponse object:
+```php
+// @see https://laravel.com/docs/5.7/http-tests#testing-json-apis
+$testResponse = $this->post('/topics/1/replies', ['message' => 'My example reply']);
+
+// Assert that the success flash message was set, and that it contains the expected message:
+$testResponse->assertHasSuccessMessage('Your reply has been added.');
+
+// Alternatively, we can also assert that some (any) success flash message was set:
+$testResponse->assertHasSuccessMessage();
+```
+
 #### Available Methods
 
 - `withInfoMessage('Message')`: Flashes a message that indicates a neutral informative change or action.
@@ -31,6 +44,12 @@ A good place to start doing so, is by including the alert we've shipped with thi
 - `withWarningMessage('Message')`: Flashes a message that indicates a warning that might need attention.
 - `withErrorMessage('Message')`: Flashes a message that indicates an erroneous, dangerous or negative action.
 
+#### Available Assertions
+
+- `assertHasInfoMessage('Message')`: Asserts that a flash message was set using `withInfoMessage`.
+- `assertHasSuccessMessage('Message')`: Asserts that a flash message was set using `withSuccessMessage`
+- `assertHasWarningMessage('Message')`: Asserts that a flash message was set using `withWarningMessage`
+- `assertHasErrorMessage('Message')`: Asserts that a flash message was set using `withErrorMessage`
 
 ### Customizing the template
 By default, our alert uses [TailwindCSS](https://github.com/tailwindcss/tailwindcss)'s utility classes to style the alert,

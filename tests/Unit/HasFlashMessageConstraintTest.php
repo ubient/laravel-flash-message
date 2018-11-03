@@ -66,7 +66,7 @@ class HasFlashMessageConstraintTest extends TestCase
     }
 
     /** @test */
-    public function it_should_throw_an_exception_for_having_no_flash_message_set_with_the_expected_message(): void
+    public function it_should_throw_an_exception_for_having_no_flash_message_set_for_the_expected_message(): void
     {
         $expected = ['level' => 'success', 'message' => 'A flashed message'];
         $actual = [];
