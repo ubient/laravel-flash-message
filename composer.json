@@ -1,6 +1,6 @@
 {
     "name": "ubient/laravel-flash-message",
-    "description": "ubient/laravel-flash-message",
+    "description": "A Laravel package to display flash messages to your users in a fluent, clean, testable and easy-to-use way!",
     "keywords": [
         "ubient",
         "laravel-flash-message",
