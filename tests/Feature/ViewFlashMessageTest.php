@@ -3,6 +3,7 @@
 namespace Ubient\FlashMessage\Tests\Feature;
 
 use Ubient\FlashMessage\Tests\TestCase;
+use PHPUnit\Framework\ExpectationFailedException;
 
 /**
  * @SuppressWarnings(PHPMD.CamelCaseMethodName)
@@ -19,8 +20,10 @@ class ViewFlashMessageTest extends TestCase
     {
         parent::setUp();
 
-        app('router')->get('display', function () {
-            return view('flash-message::alert');
+        app('router')->group(['middleware' => 'web'], function ($router) {
+            $router->get('display', function () {
+                return view('flash-message::alert');
+            });
         });
     }
 
@@ -113,5 +116,37 @@ class ViewFlashMessageTest extends TestCase
 
         $response->assertViewIs('flash-message::alert');
         $this->assertEmpty($response->content());
+    }
+
+    /** @test */
+    public function it_should_persist_across_multiple_redirects(): void
+    {
+        $message = 'Those who do not remember the past are condemned to repeat it.';
+        app('router')->group(['middleware' => 'web'], function ($router) use ($message) {
+            $router->get('redirect-to-display', function () {
+                return redirect('display');
+            });
+            $router->get('initial', function () use ($message) {
+                return redirect('redirect-to-display')->withInfoMessage($message);
+            });
+        });
+
+        $this->get('initial');
+        $response = $this->get('redirect-to-display');
+
+        $response->assertHasInfoMessage($message);
+    }
+
+    /** @test */
+    public function it_should_only_be_displayed_once(): void
+    {
+        $message = 'If you want to kill any idea in the world, get a committee working on it.';
+
+        redirect('display')->withInfoMessage($message);
+        $this->get('display');
+        $response = $this->get('display');
+
+        $this->expectException(ExpectationFailedException::class);
+        $response->assertHasInfoMessage($message);
     }
 }

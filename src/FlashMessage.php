@@ -28,7 +28,7 @@ class FlashMessage
      */
     public static function set(string $level, string $message): void
     {
-        session()->flash('flash_message', [
+        session()->put('flash_message', [
             'message' => $message,
             'level' => $level,
         ]);
