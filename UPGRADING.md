@@ -7,7 +7,7 @@ The mechanism for flashing messages was adjusted to persist across redirects ([#
 If you didn't publish/customize the template (as described [here in the README](README.md#customizing-the-template)) and use the template shipping with this package, you can safely update to 2.x without any issues.
 
 If you did however publish the template, it will now be slightly out-of-date.
-To update it and make it compatible with 2.x, all you need to do is [add one line to your `alert.blade.php` file](https://github.com/ubient/laravel-flash-message/commit/0e25c47b889eb168146773912f7e7577a989e838#diff-efa7508de9508f985738c4dbb5b6147b).
+To update it and make it compatible with 2.x, all you need to do is add one line to your `alert.blade.php` file:
 ```php
 @if (session('flash_message') || session('status'))
     ...
