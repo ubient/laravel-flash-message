@@ -38,6 +38,5 @@ class FlashMessageTest extends TestCase
 
         $this->assertEquals($flashData, session()->get('flash_message'));
         $this->assertEquals($flashData, session()->get('flash_message'));
-        $this->assertEquals('flash_message', session()->get('_flash.new.0'));
     }
 }
