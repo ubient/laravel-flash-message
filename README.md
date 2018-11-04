@@ -82,6 +82,10 @@ You can run the test using:
 vendor/bin/phpunit
 ```
 
+## Upgrading
+
+Please see [UPGRADING](UPGRADING.md) for details.
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
