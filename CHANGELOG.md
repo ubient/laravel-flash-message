@@ -2,6 +2,9 @@
 
 All notable changes to `ubient/laravel-flash-message` will be documented in this file
 
+## 2.0.1 - 2018-11-04
+- Remove a trailing semicolon in `alert.blade.php`
+
 ## 2.0.0 - 2018-11-04
 - [Persist flash messages across redirects - #8](https://github.com/ubient/laravel-flash-message/issues/8)
 
