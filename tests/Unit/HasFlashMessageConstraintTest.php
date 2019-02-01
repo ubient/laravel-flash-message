@@ -1,16 +1,12 @@
 <?php
 
-namespace Ubient\FlashMessage\Unit\PHPUnit;
+namespace Ubient\FlashMessage\Tests\Unit;
 
 use PHPUnit\Framework\TestFailure;
 use Ubient\FlashMessage\Tests\TestCase;
 use PHPUnit\Framework\ExpectationFailedException;
 use Ubient\FlashMessage\HasFlashMessageConstraint;
 
-/**
- * @SuppressWarnings(PHPMD.CamelCaseMethodName)
- * phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
- */
 class HasFlashMessageConstraintTest extends TestCase
 {
     protected function assertFailingConstraint($expected, $actual, $expectedErrorMessage)

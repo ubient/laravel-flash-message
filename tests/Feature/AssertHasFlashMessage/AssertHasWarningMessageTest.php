@@ -5,10 +5,6 @@ namespace Ubient\FlashMessage\Tests\Feature\AssertHasFlashMessage;
 use Ubient\FlashMessage\Tests\TestCase;
 use PHPUnit\Framework\ExpectationFailedException;
 
-/**
- * @SuppressWarnings(PHPMD.CamelCaseMethodName)
- * phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
- */
 class AssertHasWarningMessageTest extends TestCase
 {
     /** @test */
