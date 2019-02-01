@@ -4,10 +4,6 @@ namespace Ubient\FlashMessage\Tests\Feature;
 
 use Ubient\FlashMessage\Tests\TestCase;
 
-/**
- * @SuppressWarnings(PHPMD.CamelCaseMethodName)
- * phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
- */
 class RedirectWithFlashMessageTest extends TestCase
 {
     /** @test */

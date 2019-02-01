@@ -8,10 +8,6 @@ use Ubient\FlashMessage\Tests\TestCase;
 use Illuminate\Foundation\Testing\TestResponse;
 use Ubient\FlashMessage\FlashMessageServiceProvider;
 
-/**
- * @SuppressWarnings(PHPMD.CamelCaseMethodName)
- * phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
- */
 class FlashMessageServiceProviderTest extends TestCase
 {
     /** @var string */

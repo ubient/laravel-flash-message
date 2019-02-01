@@ -1,14 +1,10 @@
 <?php
 
-namespace Ubient\FlashMessage\Unit;
+namespace Ubient\FlashMessage\Tests\Unit;
 
 use Ubient\FlashMessage\FlashMessage;
 use Ubient\FlashMessage\Tests\TestCase;
 
-/**
- * @SuppressWarnings(PHPMD.CamelCaseMethodName)
- * phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
- */
 class FlashMessageTest extends TestCase
 {
     /** @test */

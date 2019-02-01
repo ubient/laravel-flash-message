@@ -5,15 +5,14 @@ namespace Ubient\FlashMessage\Tests\Feature;
 use Ubient\FlashMessage\Tests\TestCase;
 use PHPUnit\Framework\ExpectationFailedException;
 
-/**
- * @SuppressWarnings(PHPMD.CamelCaseMethodName)
- * phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
- */
 class ViewFlashMessageTest extends TestCase
 {
     const CSS_CLASS_INFO = 'bg-blue-light';
+
     const CSS_CLASS_SUCCESS = 'bg-green-light';
+
     const CSS_CLASS_WARNING = 'bg-orange';
+
     const CSS_CLASS_ERROR = 'bg-red-light';
 
     public function setUp()

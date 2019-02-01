@@ -2,6 +2,10 @@
 
 All notable changes to `ubient/laravel-flash-message` will be documented in this file
 
+## 2.0.2 - 2019-02-01
+- Fixed an incorrect namespacing issue for multiple files in the `tests/Unit/` folder
+- Removed (opinionated) linter overrides from tests
+
 ## 2.0.1 - 2018-11-04
 - Remove a trailing semicolon in `alert.blade.php`
 
