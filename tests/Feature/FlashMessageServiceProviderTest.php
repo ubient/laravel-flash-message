@@ -13,7 +13,7 @@ class FlashMessageServiceProviderTest extends TestCase
     /** @var string */
     protected $pathToViews;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

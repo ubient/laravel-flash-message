@@ -2,6 +2,9 @@
 
 All notable changes to `ubient/laravel-flash-message` will be documented in this file
 
+## 2.0.3 - 2019-02-26
+- Add support for Laravel 5.8
+
 ## 2.0.2 - 2019-02-01
 - Fixed an incorrect namespacing issue for multiple files in the `tests/Unit/` folder
 - Removed (opinionated) linter overrides from tests
