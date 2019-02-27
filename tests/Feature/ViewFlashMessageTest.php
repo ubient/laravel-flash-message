@@ -15,7 +15,7 @@ class ViewFlashMessageTest extends TestCase
 
     const CSS_CLASS_ERROR = 'bg-red-light';
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
