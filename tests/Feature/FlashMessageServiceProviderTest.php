@@ -4,8 +4,8 @@ namespace Ubient\FlashMessage\Tests\Feature;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\ServiceProvider;
-use Ubient\FlashMessage\Tests\TestCase;
 use Ubient\FlashMessage\FlashMessageServiceProvider;
+use Ubient\FlashMessage\Tests\TestCase;
 
 class FlashMessageServiceProviderTest extends TestCase
 {
