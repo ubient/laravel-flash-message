@@ -2,8 +2,8 @@
 
 namespace Ubient\FlashMessage\Tests\Feature;
 
-use Ubient\FlashMessage\Tests\TestCase;
 use PHPUnit\Framework\ExpectationFailedException;
+use Ubient\FlashMessage\Tests\TestCase;
 
 class ViewFlashMessageTest extends TestCase
 {
