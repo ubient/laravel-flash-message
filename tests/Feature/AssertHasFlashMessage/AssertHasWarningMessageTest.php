@@ -2,8 +2,8 @@
 
 namespace Ubient\FlashMessage\Tests\Feature\AssertHasFlashMessage;
 
-use Ubient\FlashMessage\Tests\TestCase;
 use PHPUnit\Framework\ExpectationFailedException;
+use Ubient\FlashMessage\Tests\TestCase;
 
 class AssertHasWarningMessageTest extends TestCase
 {

@@ -3,8 +3,9 @@
 namespace Ubient\FlashMessage;
 
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Testing\TestResponse;
+use LogicException;
 
 class FlashMessageServiceProvider extends ServiceProvider
 {
@@ -28,7 +29,10 @@ class FlashMessageServiceProvider extends ServiceProvider
     {
         collect(FlashMessage::levels())->each(function ($level) {
             $this->registerFlashMessage($level);
-            $this->registerHasFlashMessageAssertion($level);
+
+            if (App::runningUnitTests() && $this->hasTestResponseClass()) {
+                $this->registerHasFlashMessageAssertion($level);
+            }
         });
     }
 
@@ -36,9 +40,10 @@ class FlashMessageServiceProvider extends ServiceProvider
      * Register the "flash message" macro for the given
      * "alert level" on the redirect response.
      *
+     * @param  string  $level
      * @return void
      */
-    private function registerFlashMessage(string $level): void
+    protected function registerFlashMessage(string $level): void
     {
         $name = 'with'.ucfirst(strtolower($level)).'Message';
 
@@ -53,16 +58,55 @@ class FlashMessageServiceProvider extends ServiceProvider
      * Register the "flash message" assertion macro for
      * the given "alert level" on the Test Response.
      *
+     * @param  string  $level
      * @return void
      */
-    private function registerHasFlashMessageAssertion(string $level): void
+    protected function registerHasFlashMessageAssertion(string $level): void
     {
         $name = 'assertHas'.ucfirst(strtolower($level)).'Message';
 
-        TestResponse::macro($name, function ($value = null, $message = '') use ($level) {
+        /** @var \Illuminate\Foundation\Testing\TestResponse|\Illuminate\Testing\TestResponse $testResponse */
+        $testResponse = $this->getTestResponse();
+        $testResponse::macro($name, function ($value = null, $message = '') use ($level) {
             FlashMessage::assert($level, $value, $message);
 
             return $this;
         });
+    }
+
+    /**
+     * Detect and return the correct TestResponse class.
+     *
+     * @return string
+     */
+    protected function getTestResponse(): string
+    {
+        // Laravel >= 7.0
+        if (class_exists("\Illuminate\Testing\TestResponse")) {
+            return "\Illuminate\Testing\TestResponse";
+        }
+
+        // Laravel <= 6.0
+        if (class_exists("\Illuminate\Foundation\Testing\TestResponse")) {
+            return "\Illuminate\Foundation\Testing\TestResponse";
+        }
+
+        throw new LogicException('Could not find TestResponse class.');
+    }
+
+    /**
+     * Whether or not the TestResponse class exists.
+     *
+     * @return bool
+     */
+    protected function hasTestResponseClass(): bool
+    {
+        try {
+            $this->getTestResponse();
+        } catch (LogicException $exception) {
+            return false;
+        }
+
+        return true;
     }
 }

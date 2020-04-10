@@ -7,13 +7,13 @@ use PHPUnit\Framework\ExpectationFailedException;
 
 class ViewFlashMessageTest extends TestCase
 {
-    const CSS_CLASS_INFO = 'bg-blue-light';
+    const CSS_CLASS_INFO = 'bg-blue-400';
 
-    const CSS_CLASS_SUCCESS = 'bg-green-light';
+    const CSS_CLASS_SUCCESS = 'bg-green-400';
 
-    const CSS_CLASS_WARNING = 'bg-orange';
+    const CSS_CLASS_WARNING = 'bg-orange-500';
 
-    const CSS_CLASS_ERROR = 'bg-red-light';
+    const CSS_CLASS_ERROR = 'bg-red-400';
 
     public function setUp(): void
     {
@@ -102,7 +102,7 @@ class ViewFlashMessageTest extends TestCase
 
         $response = $this->get('display');
 
-        $response->assertSeeText($message);
+        $response->assertSeeText(e($message), false);
         $response->assertSee(static::CSS_CLASS_WARNING);
         $response->assertDontSee(e($builtInMessage));
         $response->assertDontSee(static::CSS_CLASS_SUCCESS);

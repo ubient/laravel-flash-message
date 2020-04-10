@@ -2,7 +2,8 @@
 
 namespace Ubient\FlashMessage;
 
-use PHPUnit\Framework\Assert as PHPUnit;
+use LogicException;
+use PHPUnit\Framework\Assert;
 
 class FlashMessage
 {
@@ -24,6 +25,8 @@ class FlashMessage
     /**
      * Flashes the given "flash message" to the session.
      *
+     * @param  string  $level
+     * @param  string  $message
      * @return void
      */
     public static function set(string $level, string $message): void
@@ -37,11 +40,20 @@ class FlashMessage
     /**
      * Asserts that the "flash message" is set as expected.
      *
+     * @param  string  $level
+     * @param  null  $value
+     * @param  string  $message
      * @return void
+     *
+     * @throws LogicException
      */
     public static function assert(string $level, $value = null, string $message = ''): void
     {
-        PHPUnit::assertThat(
+        if (! class_exists("\PHPUnit\Framework\Assert")) {
+            throw new LogicException('Could not assert: PHPUnit is not installed or is of incompatible version.');
+        }
+
+        Assert::assertThat(
             session()->get('flash_message'),
             new HasFlashMessageConstraint($level, $value),
             $message

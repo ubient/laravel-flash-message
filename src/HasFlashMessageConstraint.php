@@ -3,8 +3,8 @@
 namespace Ubient\FlashMessage;
 
 use Illuminate\Support\Arr;
-use SebastianBergmann\Diff\Differ;
 use PHPUnit\Framework\Constraint\Constraint;
+use SebastianBergmann\Diff\Differ;
 
 class HasFlashMessageConstraint extends Constraint
 {
@@ -36,7 +36,8 @@ class HasFlashMessageConstraint extends Constraint
      * Evaluates the constraint for parameter $other. Returns true if the
      * constraint is met, false otherwise.
      *
-     * @param mixed $other value or object to evaluate
+     * @param  mixed  $other  value or object to evaluate
+     * @return bool
      */
     protected function matches($other): bool
     {
@@ -51,7 +52,8 @@ class HasFlashMessageConstraint extends Constraint
      * The beginning of failure messages is "Failed asserting that" in most
      * cases. This method should return the second part of that sentence.
      *
-     * @param mixed $other evaluated value or object
+     * @param  mixed  $other  evaluated value or object
+     * @return string
      */
     protected function failureDescription($other): string
     {
@@ -78,6 +80,7 @@ class HasFlashMessageConstraint extends Constraint
     /**
      * Checks whether valid "flash message" data was passed.
      *
+     * @param $other
      * @return bool
      */
     private function hasValidFlashData($other): bool
@@ -88,6 +91,7 @@ class HasFlashMessageConstraint extends Constraint
     /**
      * Checks whether the "flash message" level is what we expected.
      *
+     * @param $other
      * @return bool
      */
     private function hasExpectedLevel($other): bool
@@ -99,6 +103,7 @@ class HasFlashMessageConstraint extends Constraint
      * Checks whether we expect a message, and if so, whether
      * the "flash message" message is what we expected.
      *
+     * @param $other
      * @return bool
      */
     private function hasExpectedMessage($other): bool
