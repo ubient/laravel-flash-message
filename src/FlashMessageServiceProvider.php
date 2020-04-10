@@ -67,7 +67,7 @@ class FlashMessageServiceProvider extends ServiceProvider
 
         /** @var \Illuminate\Foundation\Testing\TestResponse|\Illuminate\Testing\TestResponse $testResponse */
         $testResponse = $this->getTestResponse();
-        $testResponse::macro($name, function ($value = null, $message = '') use ($level) {
+        $testResponse::macro($name, function (string $value = null, string $message = '') use ($level) {
             FlashMessage::assert($level, $value, $message);
 
             return $this;

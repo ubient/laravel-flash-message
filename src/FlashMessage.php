@@ -41,13 +41,12 @@ class FlashMessage
      * Asserts that the "flash message" is set as expected.
      *
      * @param  string  $level
-     * @param  null  $value
+     * @param  string|null  $value
      * @param  string  $message
      * @return void
      *
-     * @throws LogicException
      */
-    public static function assert(string $level, $value = null, string $message = ''): void
+    public static function assert(string $level, string $value = null, string $message = ''): void
     {
         if (! class_exists("\PHPUnit\Framework\Assert")) {
             throw new LogicException('Could not assert: PHPUnit is not installed or is of incompatible version.');
