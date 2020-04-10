@@ -2,10 +2,10 @@
 
 namespace Ubient\FlashMessage\Tests\Unit;
 
-use PHPUnit\Framework\TestFailure;
-use Ubient\FlashMessage\Tests\TestCase;
 use PHPUnit\Framework\ExpectationFailedException;
+use PHPUnit\Framework\TestFailure;
 use Ubient\FlashMessage\HasFlashMessageConstraint;
+use Ubient\FlashMessage\Tests\TestCase;
 
 class HasFlashMessageConstraintTest extends TestCase
 {
