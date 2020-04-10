@@ -102,7 +102,7 @@ class ViewFlashMessageTest extends TestCase
 
         $response = $this->get('display');
 
-        $response->assertSeeText(e($message));
+        $response->assertSeeText($message);
         $response->assertSee(static::CSS_CLASS_WARNING);
         $response->assertDontSee(e($builtInMessage));
         $response->assertDontSee(static::CSS_CLASS_SUCCESS);

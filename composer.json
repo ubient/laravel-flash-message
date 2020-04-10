@@ -22,12 +22,13 @@
     ],
     "require": {
         "php": "^7.2",
-        "illuminate/http": "^5.8|^6.0",
-        "illuminate/support": "^5.8|^6.0",
-        "laravel/framework": "^5.8|^6.0"
+        "illuminate/http": "^7.0",
+        "illuminate/support": "^7.0",
+        "laravel/framework": "^7.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.8",
+        "illuminate/testing": "^7.0",
+        "orchestra/testbench": "^5.0",
         "phpunit/phpunit": "^8.0"
     },
     "autoload": {

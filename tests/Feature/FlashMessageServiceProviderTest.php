@@ -5,7 +5,7 @@ namespace Ubient\FlashMessage\Tests\Feature;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\ServiceProvider;
 use Ubient\FlashMessage\Tests\TestCase;
-use Illuminate\Foundation\Testing\TestResponse;
+use Illuminate\Testing\TestResponse;
 use Ubient\FlashMessage\FlashMessageServiceProvider;
 
 class FlashMessageServiceProviderTest extends TestCase

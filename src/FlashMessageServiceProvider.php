@@ -4,7 +4,7 @@ namespace Ubient\FlashMessage;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Foundation\Testing\TestResponse;
+use Illuminate\Testing\TestResponse;
 
 class FlashMessageServiceProvider extends ServiceProvider
 {
