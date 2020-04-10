@@ -57,7 +57,7 @@ class HasFlashMessageConstraint extends Constraint
      */
     protected function failureDescription($other): string
     {
-        $message = sprintf('a [%s] flash message is set', $this->expectedLevel);
+        $message = sprintf('an [%s] flash message is set', $this->expectedLevel);
 
         if ($this->expectedMessage) {
             return $message.' with the expected value';

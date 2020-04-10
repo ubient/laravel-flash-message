@@ -57,7 +57,7 @@ class HasFlashMessageConstraintTest extends TestCase
         $this->assertFailingConstraint(
             $expected,
             $actual,
-            'Failed asserting that a [success] flash message is set.'
+            'Failed asserting that an [success] flash message is set.'
         );
     }
 
@@ -70,7 +70,7 @@ class HasFlashMessageConstraintTest extends TestCase
         $this->assertFailingConstraint(
             $expected,
             $actual,
-            'Failed asserting that a [success] flash message is set with the expected value.'
+            'Failed asserting that an [success] flash message is set with the expected value.'
         );
     }
 
@@ -80,7 +80,7 @@ class HasFlashMessageConstraintTest extends TestCase
         $expected = ['level' => 'success', 'message' => 'A flashed message'];
         $actual = ['level' => $expected['level'], 'message' => 'Some completely different message'];
         $expectedMessage = <<<'EOF'
-Failed asserting that a [success] flash message is set with the expected value.
+Failed asserting that an [success] flash message is set with the expected value.
 --- Expected
 +++ Actual
 @@ @@
@@ -103,7 +103,7 @@ EOF;
         $this->assertFailingConstraint(
             $expected,
             $actual,
-            'Failed asserting that a [success] flash message is set with the expected value.'
+            'Failed asserting that an [success] flash message is set with the expected value.'
         );
     }
 
@@ -116,7 +116,7 @@ EOF;
         $this->assertFailingConstraint(
             $expected,
             $actual,
-            'Failed asserting that a [error] flash message is set.'
+            'Failed asserting that an [error] flash message is set.'
         );
     }
 }

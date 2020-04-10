@@ -4,7 +4,7 @@ All notable changes to `ubient/laravel-flash-message` will be documented in this
 
 ## 4.0.0 - 2020-04-10
 - Add support for Laravel 7.0
-- Fix crash when not in an environment where testing-related packages installed.
+- Fixed a crash when not in an environment where testing-related packages installed.
 - Upgrade TailwindCSS classes to 1.0
 
 ## 3.0.0 - 2019-09-03
