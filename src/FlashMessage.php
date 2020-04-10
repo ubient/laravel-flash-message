@@ -44,7 +44,6 @@ class FlashMessage
      * @param  string|null  $value
      * @param  string  $message
      * @return void
-     *
      */
     public static function assert(string $level, string $value = null, string $message = ''): void
     {
