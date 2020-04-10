@@ -10,7 +10,7 @@ This package provides a Laravel Flash Message that can be used to display an one
 
 ## Usage
 
-When redirecting, you can fluently chain one of the [available methods](#available-methods), similar to how you would [flash other session data](https://laravel.com/docs/5.7/redirects#redirecting-with-flashed-session-data):
+When redirecting, you can fluently chain one of the [available methods](#available-methods), similar to how you would [flash other session data](https://laravel.com/docs/7.x/redirects#redirecting-with-flashed-session-data):
 
 ```php
 return redirect()
@@ -27,7 +27,7 @@ A good place to start doing so, is by including the alert we've shipped with thi
 If you're testing your application, and would like to assert whether the flash message was set, you can do so
 by calling one of the [available assertions](#available-assertions) on the TestResponse object:
 ```php
-// @see https://laravel.com/docs/5.7/http-tests#testing-json-apis
+// @see https://laravel.com/docs/7.x/http-tests#testing-json-apis
 $testResponse = $this->post('/topics/1/replies', ['message' => 'My example reply']);
 
 // Assert that the success flash message was set, and that it contains the expected message:
