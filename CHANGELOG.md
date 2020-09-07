@@ -2,6 +2,9 @@
 
 All notable changes to `ubient/laravel-flash-message` will be documented in this file
 
+## 5.1.0 - 2020-09-07
+- Add support for Laravel 8
+
 ## 5.0.0 - 2020-04-12
 - Add support for Laravel 7.0
 - Fixed a crash when not in an environment where testing-related packages installed.
